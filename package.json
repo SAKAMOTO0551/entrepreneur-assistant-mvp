@@ -1,0 +1,20 @@
+{
+  "name": "entrepreneur-assistant-mvp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SAKAMOTO0551/entrepreneur-assistant-mvp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SAKAMOTO0551/entrepreneur-assistant-mvp/issues"
+  },
+  "homepage": "https://github.com/SAKAMOTO0551/entrepreneur-assistant-mvp#readme"
+}
