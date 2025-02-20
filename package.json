@@ -1,23 +1,22 @@
 {
   "name": "entrepreneur-assistant-mvp",
   "version": "1.0.0",
-  "description": "",
+  "description": "MVP for Virtual Personal Assistant for Entrepreneurs",
   "main": "index.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "node index.js",
     "test": "echo \"No tests specified\" && exit 0",
-    "eject": "react-scripts eject"
+    "build": "react-scripts build"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/SAKAMOTO0551/entrepreneur-assistant-mvp.git"
+  "dependencies": {
+    "express": "^4.17.1",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   },
-  "keywords": [],
+  "devDependencies": {
+    "eslint": "^8.0.0",
+    "prettier": "^2.0.0"
+  },
   "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/SAKAMOTO0551/entrepreneur-assistant-mvp/issues"
-  },
-  "homepage": "https://github.com/SAKAMOTO0551/entrepreneur-assistant-mvp#readme"
+  "license": "MIT"
 }
