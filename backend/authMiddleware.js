@@ -1,4 +1,4 @@
-// authMiddleware.js
+require("dotenv").config(); // .envファイルを読み込む
 const jwt = require("jsonwebtoken");
 
 // この関数は、HTTPリクエストのヘッダーに含まれるトークンを検証します。
@@ -9,15 +9,21 @@ const authenticateToken = (req, res, next) => {
 
     // トークンが存在しなければ、認証失敗として401エラーを返す
     if (!token) {
+        console.log("Authorization header missing.");
         return res.sendStatus(401); // Unauthorized
     }
 
+    console.log("Received token:", token);
+    console.log("Using JWT_SECRET:", process.env.JWT_SECRET);
+
     // jwt.verifyでトークンを検証
-    jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
+    jwt.verify(token, process.env.JWT_SECRET, { algorithms: ["HS256"] }, (err, user) => {
         if (err) {
             console.error("JWT verification error:", err);
             return res.sendStatus(403); // Forbidden（トークンが無効な場合）
         }
+        console.log("JWD verification successfull, user:", user);
+        
         if (user.role !== "admin") {
             return res.sendStatus(403); // Forbidden（ユーザーが管理者でない場合）
         }
