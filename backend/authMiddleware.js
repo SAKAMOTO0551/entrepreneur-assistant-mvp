@@ -13,21 +13,17 @@ const authenticateToken = (req, res, next) => {
         return res.sendStatus(401); // Unauthorized
     }
 
-    console.log("Received token:", token);
-    console.log("Using JWT_SECRET:", process.env.JWT_SECRET);
-
     // jwt.verifyでトークンを検証
     jwt.verify(token, process.env.JWT_SECRET, { algorithms: ["HS256"] }, (err, user) => {
         if (err) {
             console.error("JWT verification error:", err);
             return res.sendStatus(403); // Forbidden（トークンが無効な場合）
         }
-        console.log("JWD verification successfull, user:", user);
-        
+
         if (user.role !== "admin") {
             return res.sendStatus(403); // Forbidden（ユーザーが管理者でない場合）
         }
-        console.log("Authenticated user:", user);
+        
         req.user = user; // トークンの内容（ユーザー情報）をreqオブジェクトに保存
         next(); // 次のミドルウェアまたはルートハンドラーへ進む
     });
